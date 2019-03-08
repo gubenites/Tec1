@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,6 @@ public class Cria extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	out.println("<html><body>");
 	out.println("<form method='post'>");
-	//out.println("ID: <input type='number' name='id'><br>");
 	out.println("Hora: <input type='number' name='hora' min='00' max='24'><br>");
 	out.println("Minuto: <input type=‘number' name='minuto' min='00' max='59'><br>");
 	out.println("Segundo: <input type='number' name='segundo' min='00' max='59'><br>");
@@ -54,14 +54,17 @@ public class Cria extends HttpServlet {
 			out.println("<html><body>");
 			out.println("adicionado" + dado.getId());
 			out.println("</body></html>");
-
+			
+			RequestDispatcher rs = request.getRequestDispatcher("/");
+			
 			dao.close();
 	
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-
+		
+		
 	}
+	
 }
