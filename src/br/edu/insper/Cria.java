@@ -46,10 +46,6 @@ public class Cria extends HttpServlet {
 			dao = new DAO();
 			Dados dado = new Dados();
 			
-			Integer hour = Integer.valueOf(request.getParameter("hora"));
-			Integer min = Integer.valueOf(request.getParameter("minuto"));
-			Integer segundo = Integer.valueOf(request.getParameter("segundo"));
-			
 			dado.setHora(Integer.valueOf(request.getParameter("hora")));
 			dado.setMinuto(Integer.valueOf(request.getParameter("minuto")));
 			dado.setSegundo(Integer.valueOf(request.getParameter("segundo")));
@@ -61,7 +57,7 @@ public class Cria extends HttpServlet {
 			out.println("adicionado" + dado.getId());
 			out.println("</body></html>");
 			
-			RequestDispatcher rs = request.getRequestDispatcher("/index.html");
+			RequestDispatcher rs = request.getRequestDispatcher("/Indexj.jsp");
 			
 			rs.forward(request,response);
 			
